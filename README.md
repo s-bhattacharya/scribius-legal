@@ -11,15 +11,25 @@ With user management options and integration with other systems such as payment 
 <b>Features</b>
 
 Contract creation and storage
+
 Contract tracking and reporting
+
 Contract collaboration
+
 Contract version control
+
 Contract signature
+
 Payment integration
+
 Email notifications
+
 Contract renewal
+
 Contract analysis
+
 User management
+
 Integration with other systems
 
 <b>Requirements</b>
