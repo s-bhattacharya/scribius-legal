@@ -1,0 +1,58 @@
+const contractStore = {
+  contracts: [
+    {
+      id: 1,
+      name: "Sample Contract 1",
+      parties: [
+        {
+          name: "Party A",
+          signature: "signed"
+        },
+        {
+          name: "Party B",
+          signature: "signed"
+        }
+      ],
+      dateSigned: "2022-01-01"
+    },
+    {
+      id: 2,
+      name: "Sample Contract 2",
+      parties: [
+        {
+          name: "Party C",
+          signature: "signed"
+        },
+        {
+          name: "Party D",
+          signature: "unsigned"
+        }
+      ],
+      dateSigned: "2022-02-01"
+    }
+  ],
+  getAll: function() {
+    return this.contracts;
+  },
+  getById: function(id) {
+    return this.contracts.find(contract => contract.id === id);
+  },
+  addContract: function(contract) {
+    this.contracts.push(contract);
+    localStorage.setItem("contracts", JSON.stringify(this.contracts));
+  },
+  updateContract: function(id, updates) {
+    const contract = this.contracts.find(contract => contract.id === id);
+    Object.assign(contract, updates);
+    localStorage.setItem("contracts", JSON.stringify(this.contracts));
+  },
+  deleteContract: function(id) {
+    this.contracts = this.contracts.filter(contract => contract.id !== id);
+    localStorage.setItem("contracts", JSON.stringify(this.contracts));
+  }
+};
+
+const storedContracts = localStorage.getItem("contracts");
+if (storedContracts) {
+  contractStore.contracts = JSON.parse(storedContracts);
+}
